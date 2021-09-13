@@ -1,3 +1,6 @@
+html{
+    font-family: Georgia, serif;
+}
 h1 {
     color: #392613;
     border: 3px;
@@ -10,7 +13,6 @@ h2 {
     color: #392613;
     font-family: 'Brush Script MT', cursive;
 }
-body {font-family: Georgia, serif;}
 table {background-color: #ccb3ff;}
 form {
     background-color: #ccb3ff;
@@ -26,8 +28,7 @@ div.topnav {
 a {
     color: #ccb3ff;
     background-color: hsl(260, 100%, 60%);
-    padding-left: 15 px;
-    padding-right: 15 px;
+    padding: 15px;
 }
 a:hover {
     color: hsl(259, 100%, 94%);
