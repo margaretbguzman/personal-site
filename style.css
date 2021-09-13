@@ -1,0 +1,27 @@
+h1 {
+    color: #392613;
+    border: 3px;
+    border-color: hsl(260, 100%, 60%);
+    border-style: dashed;
+    text-align: center;
+    font-family: 'Brush Script MT', cursive;
+}
+h2 {
+    color: #392613;
+    font-family: 'Brush Script MT', cursive;
+}
+body {font-family: Georgia, serif;}
+table {background-color: #ccb3ff;}
+form{background-color: #ccb3ff;}
+ul{list-style-image: url('bulletpoint.png');}
+div {
+    background-color: hsl(260, 100%, 60%);
+}
+a {
+    color: #ccb3ff;
+    background-color: hsl(260, 100%, 60%);
+}
+a.hover {
+    color: hsl(259, 100%, 94%);
+    background-color: hsl(260, 100%, 70%);
+}
