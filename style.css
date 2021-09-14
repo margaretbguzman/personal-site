@@ -18,7 +18,7 @@ form {
     background-color: #ccb3ff;
     max-width: 50%;
 }
-ul{list-style-image: url('bulletpoint.png');}
+ul{list-style-image: url('images/bulletpoint.png');}
 div.topnav {
     color: #ccb3ff;
     background-color: hsl(260, 100%, 60%);
