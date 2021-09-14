@@ -34,8 +34,9 @@ a:hover {
     color: hsl(259, 100%, 94%);
     background-color: hsl(260, 100%, 70%);
 }
-.selfie {
+img {
     margin: 15px;
     border-color:hsl(260, 100%, 60%);
-    border-width: 2 px;
+    border-width: 10 px;
+    box-shadow: 5px 5px 5px gray;
 }
