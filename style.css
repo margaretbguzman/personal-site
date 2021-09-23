@@ -1,42 +1,54 @@
 html{
     font-family: Georgia, serif;
+    background-image: url(images/BG.png);
+    background-position: top;
+    background-size: cover;
+    
 }
 h1 {
-    color: #392613;
+    color: #b588ff;
     border: 3px;
-    border-color: hsl(260, 100%, 60%);
+    border-color: hsl(0, 0%, 100%);
     border-style: dashed;
     text-align: center;
     font-family: 'Brush Script MT', cursive;
 }
 h2 {
-    color: #392613;
+    color: #b588ff;
     font-family: 'Brush Script MT', cursive;
 }
-table {background-color: #ccb3ff;}
+table {
+    background-color: hsla(260, 100%, 85%, 0);
+    color: hsl(260, 100%, 85%);
+}
 form {
-    background-color: #ccb3ff;
     max-width: 50%;
 }
 ul{list-style-image: url('images/bulletpoint.png');}
 div.topnav {
-    color: #ccb3ff;
-    background-color: hsl(260, 100%, 60%);
+    color: #b588ff;
+    background-color: hsl(0, 0%, 0%);
     padding: 15px;
     margin: 15px;
 }
 a {
-    color: #ccb3ff;
-    background-color: hsl(260, 100%, 60%);
+    color: #b588ff;
+    background-color: hsl(0, 0%, 0%);
     padding: 15px;
 }
 a:hover {
     color: hsl(259, 100%, 94%);
-    background-color: hsl(260, 100%, 70%);
+    background-color: hsl(260, 42%, 30%);
 }
 img {
     margin: 15px;
     border-color:hsl(260, 100%, 60%);
     border-width: 10 px;
-    box-shadow: 5px 5px 5px gray;
+    box-shadow: 5px 5px 5px black;
+}
+p {
+    color:hsl(260, 100%, 85%)
+}
+ul {
+    color:hsl(260, 100%, 85%)
 }
