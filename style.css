@@ -1,14 +1,19 @@
+@keyframes pulse {
+    0% {transform:scale(1.1);}
+    50% {transform:scale(0.9);}
+    100% {transform:scale(1.1);}
+}
 html{
     font-family:Arial, Helvetica, sans-serif;
-    background-image: url(images/BGdark.png);
-    background-size: cover;
+    background-image: url(images/BGtile.png);
+    background-size: initial;
     background-position: top;
+    background-repeat: repeat;
 }
 h1 {
+    animation: pulse 2s linear 0s infinite;
+    background-color: background-color: hsl(0, 0%, 0%, 0.5%);
     color: #9a88ff;
-    border: 3px;
-    border-color: hsl(0, 0%, 100%);
-    border-style: dashed;
     text-align: center;
     font-family: 'Brush Script MT', cursive;
 }
@@ -18,7 +23,7 @@ h2 {
 }
 table {
     background-color: hsla(260, 100%, 85%, 0);
-    color: hsl(260, 100%, 85%);
+    color: hsl(259, 100%, 94%)
 }
 form {
     max-width: 50%;
