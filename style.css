@@ -1,12 +1,12 @@
 html{
-    font-family: Georgia, serif;
-    background-image: url(images/BG.png);
+    font-family:Arial, Helvetica, sans-serif
+    background-image: url(images/BGdark.png);
     background-position: top;
     background-size: cover;
     
 }
 h1 {
-    color: #b588ff;
+    color: 9a88ff;
     border: 3px;
     border-color: hsl(0, 0%, 100%);
     border-style: dashed;
@@ -14,7 +14,7 @@ h1 {
     font-family: 'Brush Script MT', cursive;
 }
 h2 {
-    color: #b588ff;
+    color: #9a88ff;
     font-family: 'Brush Script MT', cursive;
 }
 table {
@@ -26,29 +26,28 @@ form {
 }
 ul{list-style-image: url('images/bulletpoint.png');}
 div.topnav {
-    color: #b588ff;
-    background-color: hsl(0, 0%, 0%);
+    color: #b9a88ff;
+    background-color: hsla(0, 0%, 0%, 0.5);
     padding: 15px;
     margin: 15px;
 }
 a {
-    color: #b588ff;
-    background-color: hsl(0, 0%, 0%);
+    color: #9a88ff;
+    background-color: hsl(0, 0%, 0%, 0.5%);
     padding: 15px;
 }
 a:hover {
     color: hsl(259, 100%, 94%);
-    background-color: hsl(260, 42%, 30%);
+    background-color: hsl(251, 42%, 30%);
 }
 img {
     margin: 15px;
-    border-color:hsl(260, 100%, 60%);
-    border-width: 10 px;
+    border-width: medium;
     box-shadow: 5px 5px 5px black;
 }
 p {
-    color:hsl(260, 100%, 85%)
+    color:hsl(259, 100%, 94%)
 }
 ul {
-    color:hsl(260, 100%, 85%)
+    color:hsl(259, 100%, 94%)
 }
