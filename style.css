@@ -9,6 +9,7 @@ html{
     background-size: initial;
     background-position: top;
     background-repeat: repeat;
+    background-color: black;
 }
 h1 {
     animation: pulse 2s linear 0s infinite;
