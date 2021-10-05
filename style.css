@@ -9,6 +9,7 @@ html{
     background-size: initial;
     background-position: top;
     background-repeat: repeat;
+    color:hsl(259, 100%, 94%)
 }
 h1 {
     animation: pulse 2s linear 0s infinite;
@@ -59,4 +60,15 @@ p {
 }
 ul {
     color:hsl(259, 100%, 94%)
+}
+button {
+    color: #9a88ff;
+    background-color: hsl(0, 0%, 0%, 0.5%);
+    border: 5px solid #9a88ff;
+}
+button:hover {
+    color: #9a88ff;
+    background-color: hsl(0, 0%, 0%, 0.5%);
+    border: 5px solid #9a88ff;
+    filter: brightness(150%);
 }

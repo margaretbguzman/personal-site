@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Nutrition Calculator</title>
+	<link rel="stylesheet" href="style.css"/>
+	<meta charset="UTF-8">
+	<title>Nutrition Calculator</title>
 <script>
 function calculate(){
     var sex = document.getElementById("sex").value;
     var activityLevel= document.getElementById("activity").value;
-    var heightIn = document.getElementById("height").innerHTML;
-    var weightLb = document.getElementById("weight").innerHTML;
-    var age = document.getElementById("age").innerHTML;
+    var heightIn = parseInt(document.getElementById("height").value);
+    var weightLb = parseInt(document.getElementById("weight").value);
+    var age = parseInt(document.getElementById("age").value);
     var heightCm = heightIn * 2.54;
     var weightKg = weightLb / 2.2;
     var aMultiplier;
@@ -44,14 +45,15 @@ switch(sex) {
 	}
 alert("You need " + calories + " calories per day.")
 }
-  </script>
+</script>
 </head>
 <body>
-  <div id="navbar">
-	<p>Home</p>
-	<p>Info</p>
-  </div>
   <h1>Nutrition Calculator</h1>
+  <div class="topnav">
+	<a href="Homepage.html">Home</a>
+	<a href="About Me.html">About Me</a>
+	<a href="My Work.html">My Work</a>
+  </div>
   <form id="nutrCalc">
 	<label>Select your sex</label>
 	  <select id="sex" name="sex" required>
