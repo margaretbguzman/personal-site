@@ -8,7 +8,7 @@
 function calculate(){
     var sex = document.getElementById("sex").value;
     var activityLevel= document.getElementById("activity").value;
-    var heightIn = parseInt(document.getElementById("height").value);
+    var heightIn = (parseInt(document.getElementById("heightFt").value) * 12) + parseInt(document.getElementById("heightIn").value);
     var weightLb = parseInt(document.getElementById("weight").value);
     var age = parseInt(document.getElementById("age").value);
     var heightCm = heightIn * 2.54;
@@ -67,8 +67,11 @@ alert("You need " + Math.round(calories) + " calories per day.")
 		<option value="moderatelyActive">Moderately Active</option>
 		<option value="veryActive">Very Active</option>
 	  </select><br>
-	<label>Enter your height in inches</label>
-	  <input id="height" type=text name="Height in inches" required><br>
+	<label>Enter your height:</label>
+	<label>Feet</label>
+	  <input id="heightFt" type=text name="HeightFt" required>
+	<label>Inches</label>
+	  <input id="heightIn" type=text name="HeightIn" required><br>
 	<label>Enter your weight in pounds</label>
 	  <input id="weight" type=text name="Weight in lbs" required><br>
 	<label>Enter your age in years</label>
