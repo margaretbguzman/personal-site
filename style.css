@@ -4,24 +4,9 @@
     100% {transform:scale(1.1);}
 }
 html{
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: url(images/BGtile.png);
-    background-size: initial;
-    background-position: top;
-    background-repeat: repeat;
-    color:hsl(259, 100%, 94%)
-}
-h1 {
-    animation: pulse 2s linear 0s infinite;
-    background-color: hsl(0, 0%, 0%, 0.5%);
-    color: #9a88ff;
-    text-align: center;
-    font-family: 'Brush Script MT', cursive;
-    max-width: 95%;
-}
-h2 {
-    color: #9a88ff;
-    font-family: 'Brush Script MT', cursive;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #1e1e1e;
+    color: white;
 }
 table {
     background-color: hsla(260, 100%, 85%, 0);
@@ -32,43 +17,58 @@ form {
 }
 ul{list-style-image: url('images/bulletpoint.png');}
 div.topnav {
-    color: #9a88ff;
-    background-color: hsla(0, 0%, 0%, 0.5);
-    padding: 15px;
-    margin: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px;
 }
+div.topnav a {
+    text-align: center;
+    border: none;
+    font-size: x-large;
+    background-color: #1e1e1e;
+    text-decoration: none;
+}
+div.topnav a:hover {
+    text-align: center;
+    border: none;
+    font-size: x-large;
+    background-color: #343434;
+    text-decoration: none;
+}
+#home {
+     font-size: xx-large;
+     color: #dc9fff;
+     text-decoration: none;
+ }
 a {
-    color: #9a88ff;
-    background-color: hsl(0, 0%, 0%, 0.5%);
+    color: white;
+    background-color: #343434;
     padding: 15px;
-    border: 5px solid #9a88ff;
+    border: 2px solid #707070;
+    text-decoration: none;
 }
 a:hover {
-    color: #9a88ff;
-    background-color: hsl(0, 0%, 0%, 0.5%);
+    color: white;
     padding: 15px;
-    border: 5px solid #9a88ff;
-    filter: brightness(150%);
+    border: 2px solid #707070;
+    text-decoration: none;
 }
 img {
     margin: 15px;
     box-shadow: 5px 5px 5px black;
-    border: 5px solid #9a88ff;
-}
-p {
-    color:hsl(259, 100%, 94%)
+    border: 5px solid #707070;
 }
 ul {
     color:hsl(259, 100%, 94%)
 }
 button {
-    color: #9a88ff;
+    color: #dc9fff;
     background-color: hsl(0, 0%, 0%, 0.5%);
-    border: 5px solid #9a88ff;
+    border: 5px solid #dc9fff;
 }
 button:hover {
-    color: #9a88ff;
+    color: #dc9fff;
     background-color: hsl(0, 0%, 0%, 0.5%);
-    border: 5px solid #9a88ff;
+    border: 5px solid #dc9fff;
     filter: brightness(150%);
 }
