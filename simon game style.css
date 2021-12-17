@@ -1,0 +1,75 @@
+html {
+	text-align: center;
+}
+div.topnav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px;
+}
+div.topnav a {
+    text-align: center;
+    border: none;
+    font-size: x-large;
+    background-color: #1e1e1e;
+    text-decoration: none;
+}
+div.topnav a:hover {
+    text-align: center;
+    border: none;
+    font-size: x-large;
+    background-color: #343434;
+    text-decoration: none;
+}
+#topbar {
+	height: 100px;
+	display: grid;
+	grid-template-columns: [left] 1fr [center] 1fr [right];
+	grid-template-rows: [top] 1fr [mid] 1fr [bottom];
+	grid-template-areas: 
+		"s msg"
+		"score msg";
+}
+#s {
+	grid-area: s;
+}
+#score {
+	grid-area: score;
+}
+#msg {
+	grid-area: msg;
+}
+#board {
+	height: 400px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+}
+#one {
+	background-color: red;
+	border-top: 10px solid gray;
+	border-left: 10px solid gray;
+	border-bottom: 5px solid gray;
+	border-right: 5px solid gray;
+}
+#two {
+	background-color: blue;
+	border-top: 10px solid gray;
+	border-right: 10px solid gray;
+	border-bottom: 5px solid gray;
+	border-left: 5px solid gray;
+}
+#three {
+	background-color: green;
+	border-bottom: 10px solid gray;
+	border-left: 10px solid gray;
+	border-right: 5px solid gray;
+	border-top: 5px solid gray;
+}
+#four {
+	background-color: yellow;
+	border-bottom: 10px solid gray;
+	border-right: 10px solid gray;
+	border-left: 5px solid gray;
+	border-top: 5px solid gray;
+	
+}
