@@ -12,6 +12,7 @@ div.topnav a {
     font-size: x-large;
     background-color: #1e1e1e;
     text-decoration: none;
+    color: #dc9fff;
 }
 div.topnav a:hover {
     text-align: center;
@@ -19,6 +20,7 @@ div.topnav a:hover {
     font-size: x-large;
     background-color: #343434;
     text-decoration: none;
+    color: #dc9fff;
 }
 #topbar {
 	height: 100px;
