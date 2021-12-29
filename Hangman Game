@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Margaret Guzman</title>
+        <link rel="stylesheet" href="style.css"/>
+	</head>
+	<body>
+        <div class="topnav">
+            <a href="My Work.html">My Work</a>
+            <a id="home" href="Homepage.html">Margaret Guzman</a>
+            <a href="About Me.html">About Me</a>
+        </div>
+        <center><button id="start">Start</button></center><br />
+		<label for="guess">Enter a letter:</label>
+		<input type="text" id="guess" name="guess">
+		<button id="sendGuess">Guess</button>
+		<div id="wordContainer"></div>
+		<div id="man">Empty Noose</div>
+    </body>
+</html>
