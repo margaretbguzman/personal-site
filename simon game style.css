@@ -28,8 +28,8 @@ div.topnav a:hover {
 	color: white;
 	height: 100px;
 	display: grid;
-	grid-template-columns: [left] 1fr [center] 1fr [right];
-	grid-template-rows: [top] 1fr [mid] 1fr [bottom];
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
 	grid-template-areas: 
 		"s msg"
 		"score msg";
@@ -47,13 +47,16 @@ div.topnav a:hover {
 	color: white;
 }
 #board {
-	height: 400px;
+	height: 600px;
+	width: 800px;
 	display: grid;
 	grid-template-columns: 100px 1fr 1fr 100px;
-	grid-template-rows: 1fr 1fr;
+	grid-template-rows: 50px 1fr 1fr 100px;
 	grid-template-areas: 
+		". . . ."
 		". one two ."
-		". three four .";
+		". three four ."
+		". . . .";
 }
 #one {
 	grid-area: one;
