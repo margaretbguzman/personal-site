@@ -47,10 +47,14 @@ div.topnav a:hover {
 #board {
 	height: 400px;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 100px 1fr 1fr 100px;
 	grid-template-rows: 1fr 1fr;
+	grid-template-areas: 
+		". one two ."
+		". three four .";
 }
 #one {
+	grid-area: one;
 	background-color: red;
 	border-top: 10px solid gray;
 	border-left: 10px solid gray;
@@ -58,6 +62,7 @@ div.topnav a:hover {
 	border-right: 5px solid gray;
 }
 #two {
+	grid-area: two;
 	background-color: blue;
 	border-top: 10px solid gray;
 	border-right: 10px solid gray;
@@ -65,6 +70,7 @@ div.topnav a:hover {
 	border-left: 5px solid gray;
 }
 #three {
+	grid-area: three;
 	background-color: green;
 	border-bottom: 10px solid gray;
 	border-left: 10px solid gray;
@@ -72,6 +78,7 @@ div.topnav a:hover {
 	border-top: 5px solid gray;
 }
 #four {
+	grid-area: four;
 	background-color: yellow;
 	border-bottom: 10px solid gray;
 	border-right: 10px solid gray;
