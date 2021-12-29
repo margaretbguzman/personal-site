@@ -1,5 +1,7 @@
 html {
 	text-align: center;
+	background-color: #1e1e1e;
+	color: white;
 }
 div.topnav {
     display: grid;
@@ -33,12 +35,14 @@ div.topnav a:hover {
 }
 #s {
 	grid-area: s;
+	
 }
 #score {
 	grid-area: score;
 }
 #msg {
 	grid-area: msg;
+	color: white;
 }
 #board {
 	height: 400px;
