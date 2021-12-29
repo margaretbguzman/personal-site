@@ -4,7 +4,7 @@ function initialize() {
 	var guessBox = document.getElementById("guess");
 	var startButton = document.getElementById("start");
     var wordContainer = document.getElementById("wordContainer");
-    var possibleWords = ["improve", "baton", "arctic"]
+    var possibleWords = ["improve", "baton", "arctic"];
     var word;
     var wordIndex;
     var wrongGuesses;
