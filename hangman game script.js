@@ -9,7 +9,7 @@ function initialize() {
     var wordIndex;
     var wrongGuesses;
     var man = document.getElementById("man");
-    document.write("initialized!");
+    console.log("initialized!");
 }
 
 function start() {
