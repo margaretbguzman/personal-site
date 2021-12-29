@@ -25,6 +25,7 @@ div.topnav a:hover {
     color: #dc9fff;
 }
 #topbar {
+	color: white;
 	height: 100px;
 	display: grid;
 	grid-template-columns: [left] 1fr [center] 1fr [right];
@@ -35,10 +36,11 @@ div.topnav a:hover {
 }
 #s {
 	grid-area: s;
-	
+	color: white;
 }
 #score {
 	grid-area: score;
+	color: white;
 }
 #msg {
 	grid-area: msg;
