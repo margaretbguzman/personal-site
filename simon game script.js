@@ -152,7 +152,7 @@ function defineSeq() {
 //this function begins the game
 function begin() {
 	beginButton.disabled = true;
-	msg.style.color = "black";
+	msg.style.color = "white";
 	msg.innerHTML = "Watch carefully...";
 	seq = [];
 	selection = [];
