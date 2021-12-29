@@ -167,7 +167,7 @@ function begin() {
 function newRound() {
 	round++;
 	numCorrect = 0;
-	msg.style.color = "black";
+	msg.style.color = "white";
 	msg.innerHTML = "Round " + round;
 	setTimeout(function(){msg.innerHTML = "Watch carefully..."}, 1000);
 	seq = [];
