@@ -5,15 +5,16 @@
         <link rel="stylesheet" href="style.css"/>
 	</head>
 	<body>
+        <script src="hangman game script.js" async="true"></script>
         <div class="topnav">
             <a href="My Work.html">My Work</a>
             <a id="home" href="Homepage.html">Margaret Guzman</a>
             <a href="About Me.html">About Me</a>
         </div>
-        <center><button id="start">Start</button></center><br />
+        <button id="start" onclick="start()">Start</button><br />
 		<label for="guess">Enter a letter:</label>
 		<input type="text" id="guess" name="guess">
-		<button id="sendGuess">Guess</button>
+		<button id="sendGuess" onclick="guess()">Guess</button>
 		<div id="wordContainer"></div>
 		<img id="man" src="images/hangman-0.png"></img>
     </body>
