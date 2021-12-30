@@ -7,6 +7,7 @@ div.topnav {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 100px;
+	align-items: center;
 }
 div.topnav a {
     text-align: center;
@@ -14,7 +15,7 @@ div.topnav a {
     font-size: x-large;
     background-color: #1e1e1e;
     text-decoration: none;
-    color: #dc9fff;
+	color: white;
 }
 div.topnav a:hover {
     text-align: center;
@@ -22,7 +23,12 @@ div.topnav a:hover {
     font-size: x-large;
     background-color: #343434;
     text-decoration: none;
-    color: #dc9fff;
+	color: white;
+}
+#home {
+	font-size: xx-large;
+	color: #dc9fff;
+	text-decoration: none;
 }
 #topbar {
 	color: white;
