@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Margaret Guzman - Hangman</title>
-        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="hangman game style.css"/>
 	</head>
 	<body>
         <script src="hangman game script.js" async="true"></script>
@@ -11,11 +11,14 @@
             <a id="home" href="Homepage.html">Margaret Guzman</a>
             <a href="About Me.html">About Me</a>
         </div>
-        <button id="start" onclick="start()">Start</button><br />
+        <center><h1>Hangman</h1>
+		<p>Press "start" to begin. Enter your guess in the field below and press "guess" to guess a letter. It is NOT case-sensitive. Have fun!</p>
+		<button id="start" onclick="start()">Start</button><br />
 		<label for="guess">Enter a letter:</label>
 		<input type="text" id="guess" name="guess">
 		<button id="sendGuess" onclick="guess()">Guess</button>
-		<div id="wordContainer"></div>
-		<img id="man" src="images/hangman-0.png"></img>
+		<h3 id="msg"></h3>
+		<div id="wordContainer"></div><br
+		<img id="man" src="images/hangman-0.png"></img></body></html></center>
     </body>
 </html>
