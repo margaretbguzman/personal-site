@@ -74,3 +74,7 @@ button:hover {
     border: 2px solid #707070;
     filter: brightness(150%);
 }
+button:disabled {
+    background-color: darkGray;
+	color: gray;
+}
