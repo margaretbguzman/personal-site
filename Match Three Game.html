@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Match Three - Margaret Guzman</title>
+        <style>
+#boardCont {
+	z-index: 0;
+	height: 400px;
+	width: 400px;
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+#begin {
+	display: block;
+}
+        </style>
+	</head>
+	<body>
+		<div id="gameHead">
+			<h1>Match Three</h1>
+			<strong id="instruct">Tap or click on a piece to select it, then tap or click on an adjacent piece to switch them. You have 20 moves to get your score as high as possible. Good luck!</strong>
+			<div id="msg-moves">
+				<p id="msg"></p>
+				<p id="moves"></p>
+			</div>
+			<center><button id="begin" onclick="begin()">Begin</button></center>
+		</div>
+		<div id="boardCont"></div>
+        <script>
+            /*
+By Margaret Guzman. Comment if you enjoy! My other completed projects are available on my website at https://margaretbguzman.com/
+*/
+
+window.onload = init;
+
+function init() {
+	boardCont = document.getElementById("boardCont");
+	gameHead = document.getElementById("gameHead");
+	loadBoard();
+	console.log("initialized");
+	start = document.getElementById("begin");
+	msg = document.getElementById("msg");
+	movesMsg = document.getElementById("moves");
+}
+
+//this function produces 25 board spaces with IDs s1-s25, "s" stands for space
+function loadBoard() {
+	for (let i=1; i<=25; i++) {
+		s = document.createElement("div");
+		s.setAttribute("id", "s"+i);
+		boardCont.appendChild(s);
+		s.ID = i;
+		s.style.border = "1px solid black";
+		s.style.padding = "15px";
+	}
+}
+
+function clearBoard() {
+	console.log("+++++CLEARING BOARD+++++");
+	for (let i=1; i<=25; i++) {
+		var toClearID = "s"+i;
+		var toClear = document.getElementById(toClearID);
+		var toRemove = toClear.firstChild;
+		if (toRemove !== null) {
+			toRemove.remove();
+		}//end of if toClear has a piece
+	}//end of for loop
+}//end of function clearBoard
+
+/*
+Constructs a piece at the location ID passed to the first paramater and assigns an ID to the piece based on the second parameter. This function is called during fillBoard and readAndReplaceEmptySpaces. In the latter function, the pieceID is passed from a list of available IDs (each piece has a unique ID from p1-p25).
+*/
+function constructPiece(locID, pieceID) {
+	var p = document.createElement("div");
+	var colorID = Math.floor(Math.random() * 5);
+	switch (colorID) {
+			case 0:
+				p.style.backgroundColor = "red";
+				break;
+			case 1: 
+				p.style.backgroundColor = "orange";
+				break;
+			case 2:
+				p.style.backgroundColor = "purple";
+				break;
+			case 3:
+				p.style.backgroundColor = "green";
+				break;
+			case 4:
+				p.style.backgroundColor = "blue";
+				break;
+		}//end of colorID switch statement
+	p.colorID = colorID;
+	p.locID = locID;
+	p.setAttribute("id", pieceID);
+	p.style.zIndex = "1";
+	p.style.padding = "5px";
+	p.style.height = "40px";
+	var parentID = "s"+locID;
+	p.location = parentID;
+	var parent = document.getElementById(parentID);
+	parent.appendChild(p);
+	p.isSelected = 0;
+	p.select = function() {
+			if (this.isSelected == 0) {
+				switch (numSelected) {
+			   		case 0:
+			   			this.isSelected = 1;
+			   			this.style.border = "5px solid black";
+						numSelected++;
+						selected.push(this.getAttribute("id"));
+this.isSelected = 0;
+						break;
+					case 1:
+						this.isSelected = 2;
+						this.style.border = "5px solid darkGray";
+						numSelected++;
+						selected.push(this.getAttribute("id"));
+console.log("selected: " + selected.join(" "));
+						switchPieces();
+						selected = [];
+						numSelected = 0;
+						this.isSelected = 0;
+						break;
+		   		}//end of isSelected switch statement
+			} else {
+				this.isSelected = 0;
+				this.style.border = "none";
+				numSelected--;
+				selected.pop(this.getAttribute("id"));
+			}//end of if/else statement
+			console.log("selected: " + selected.join(" "));
+			console.log("Location of this piece: "+this.locID);
+		}//end of function p.select
+		p.addEventListener("click", p.select)
+}//end of function constructPiece
+
+//this function constructs a game piece for each game space at the beginning of the game with IDs p1-p25.
+function fillBoard() {
+	for (x=1; x<=25; x++) {
+		var pieceID = "p"+x;
+		constructPiece(x, pieceID);
+	}//end of for loop
+}//end of function fillBoard
+
+function switchPieces() {
+	
+	firstPiece = document.getElementById(selected[0]);
+	firstLoc = document.getElementById(selected[0]).location;
+	secondPiece = document.getElementById(selected[1]);
+	secondLoc = document.getElementById(selected[1]).location;
+	firstLocId = firstPiece.locID;
+	secondLocId = secondPiece.locID;
+
+	locDiff = firstPiece.locID - secondPiece.locID;
+	//checks if pieces are adjacent before switching them
+	switch (locDiff) {
+		case 5:
+		case -5:
+		case 1:
+		case -1:
+			move++;
+			console.log("Switching pieces... Move # "+move);
+	movesMsg.innerText = "Moves remaining: "+(20-move);
+document.getElementById(secondLoc).appendChild(firstPiece);
+			firstPiece.location = secondLoc;
+			firstPiece.locID = secondLocId;
+document.getElementById(firstLoc).appendChild(secondPiece);
+			secondPiece.location = firstLoc;
+			secondPiece.locID = firstLocId;
+			firstPiece.style.border = "none";
+			secondPiece.style.border = "none";
+			newPositions();
+			break;
+		default:
+			console.log("Pieces not adjacent");
+			firstPiece.style.border = "none";
+			secondPiece.style.border = "none";
+			break;
+	}//end of switch statement
+}//end of function switchPieces
+
+/*
+this function checks every piece for adjacent pieces of the same color and results in the three dynamic multi-dimensional arrays that define the matches on the board at any given time. It is called in newPositions() every time the pieces move.
+*/
+function checkBoard() {
+	console.log("----------CHECKING BOARD-----------");
+	matchThrees = [];
+	matchFours = [];
+	matchFives = [];
+	for (t=1; t<=25; t++) {
+		var currentLocID = "s"+t;
+		var currentPiece = document.getElementById(currentLocID).firstChild;
+		if (currentPiece == null) {
+			continue;
+		}
+		//define and check BELOW
+		adjacentLocId1 = currentPiece.locID + 5;
+		if (adjacentLocId1<1 || adjacentLocId1>25) {
+		} else {
+			adjacentLoc1 = "s"+adjacentLocId1;
+			adjacentPiece1 = document.getElementById(adjacentLoc1).firstChild;
+			if (adjacentPiece1 == null) {
+				continue;
+			}
+			if (adjacentPiece1.style.backgroundColor == currentPiece.style.backgroundColor) {
+			
+//define and check third piece below
+				var thirdAdjLocId1 = adjacentPiece1.locID + 5;
+				if (thirdAdjLocId1>25) {
+				} else {
+					thirdAdjLoc1="s"+thirdAdjLocId1;
+					var thirdAdjPiece1 = document.getElementById(thirdAdjLoc1).firstChild;
+if (thirdAdjPiece1 == null) {
+	continue;
+}
+					
+					if (thirdAdjPiece1.style.backgroundColor == currentPiece.style.backgroundColor) {
+						console.log("-----MATCH THREE!-----");
+						matchThree = [currentPiece.getAttribute("id"), adjacentPiece1.getAttribute("id"), thirdAdjPiece1.getAttribute("id")];
+console.log("Match pieces: "+matchThree.join(" "));
+						matchThrees.push(matchThree);
+console.log("All Match Threes: "+matchThrees);
+
+//define and check fourth piece below
+						var fourthAdjLocId1 = thirdAdjPiece1.locID + 5;
+				if(fourthAdjLocId1>25) {
+				} else {
+					fourthAdjLoc1 = "s"+fourthAdjLocId1;
+					fourthAdjPiece1 = document.getElementById(fourthAdjLoc1).firstChild;
+					if (fourthAdjPiece1 == null) {
+	continue;
+}
+					if(fourthAdjPiece1.style.backgroundColor == currentPiece.style.backgroundColor) {
+	console.log("-----MATCH FOUR!------");
+	matchFour = [currentPiece.getAttribute("id"), adjacentPiece1.getAttribute("id"), thirdAdjPiece1.getAttribute("id"), fourthAdjPiece1.getAttribute("id")];
+console.log("Match pieces: "+matchFour.join(" "));
+	matchFours.push(matchFour);
+	
+	//define and check fifth piece below 
+fifthAdjLocId1 = fourthAdjPiece1.locID + 5;
+if (fifthAdjLocId1>25) {
+} else {
+	fifthAdjLoc1 = "s"+fifthAdjLocId1;
+	fifthAdjPiece1 = document.getElementById(fifthAdjLoc1).firstChild;
+if (fifthAdjPiece1 == null) {
+	continue;
+}
+if(fifthAdjPiece1.style.backgroundColor == currentPiece.style.backgroundColor) {
+	console.log("-----MATCH FIVE!------");
+	matchFive = [currentPiece.getAttribute("id"), adjacentPiece1.getAttribute("id"), thirdAdjPiece1.getAttribute("id"), fourthAdjPiece1.getAttribute("id"), fifthAdjPiece1.getAttribute("id")];
+console.log("Match pieces: "+matchFive.join(" "));
+	matchFives.push(matchFive);
+} else {
+	
+}
+}
+
+} else {
+	
+}
+				}
+					} else {
+						
+					}
+				}
+			} else {
+			}
+		}
+		
+		//define and check to RIGHT
+		adjacentLocId2 = currentPiece.locID + 1;
+		if (adjacentLocId2>25||adjacentLocId2%5==1) {
+		} else {
+			adjacentLoc2 = "s"+adjacentLocId2;
+			adjacentPiece2 = document.getElementById(adjacentLoc2).firstChild;
+			if (adjacentPiece2 == null) {
+				continue;
+			}
+				if (adjacentPiece2.style.backgroundColor == currentPiece.style.backgroundColor) {
+
+//define and check third to right
+					thirdAdjLocId2 = currentPiece.locID+2;
+					if (thirdAdjLocId2>25||thirdAdjLocId2%5==1) {
+					} else {
+					   thirdAdjLoc2 = "s"+thirdAdjLocId2;
+						thirdAdjPiece2 = document.getElementById(thirdAdjLoc2).firstChild;
+						if (thirdAdjPiece2 == null) {
+	continue;
+}
+						if (thirdAdjPiece2.style.backgroundColor == currentPiece.style.backgroundColor) {
+							console.log("------MATCH THREE!------");
+matchThree = [currentPiece.getAttribute("id"), adjacentPiece2.getAttribute("id"), thirdAdjPiece2.getAttribute("id")];
+console.log("Match pieces: "+matchThree.join(" "));
+						matchThrees.push(matchThree);
+
+//define and check fourth to right
+							fourthAdjLocId2 = thirdAdjPiece2.locID + 1;
+				if(fourthAdjLocId2>25||fourthAdjLocId2%5==1) {
+				} else {
+					fourthAdjLoc2 = "s"+fourthAdjLocId2;
+					fourthAdjPiece2 = document.getElementById(fourthAdjLoc2).firstChild;
+if (fourthAdjPiece2 == null) {
+	continue;
+}
+					if(fourthAdjPiece2.style.backgroundColor == currentPiece.style.backgroundColor) {
+	console.log("-----MATCH FOUR!------");
+	matchFour = [currentPiece.getAttribute("id"), adjacentPiece2.getAttribute("id"), thirdAdjPiece2.getAttribute("id"), fourthAdjPiece2.getAttribute("id")];
+console.log("match pieces: "+matchFour.join(" "));
+matchFours.push(matchFour);
+
+//define and check fifth to right
+fifthAdjLocId2 = fourthAdjPiece2.locID + 1;
+if(fifthAdjLocId2>25||fifthAdjLocId2%5==1) {
+} else {
+	fifthAdjLoc2 = "s"+fifthAdjLocId2;
+	fifthAdjPiece2 = document.getElementById(fifthAdjLoc2).firstChild;
+if (fifthAdjPiece2.style.backgroundColor == currentPiece.style.backgroundColor) {
+	console.log("-----MATCH FIVE!------");
+	matchFive = [currentPiece.getAttribute("id"), adjacentPiece2.getAttribute("id"), thirdAdjPiece2.getAttribute("id"), fourthAdjPiece2.getAttribute("id"), fifthAdjPiece2.getAttribute("id")];
+console.log("match pieces: "+matchFive.join(" "));
+matchFives.push(matchFive);
+} else {
+}
+}
+} else {
+}
+}
+						} else {
+						  
+						}
+					}
+			} else {
+			   
+			}
+		}
+	}//end of for loop that creates match arrays
+	matchThrees.forEach(checkMatchThrees);
+	matchThrees.forEach(removeDuplicates);
+	matchThrees.forEach(removeDuplicates);
+	matchThrees.forEach(removeDuplicates);
+	matchThrees.forEach(removeDuplicates);
+	matchFours.forEach(checkMatchFours);
+	matchFours.forEach(removeDuplicates);
+	matchFours.forEach(removeDuplicates);
+	matchFours.forEach(removeDuplicates);
+	matchFours.forEach(removeDuplicates);
+	score += (matchThrees.length*10)+(matchFours.length*25)+(matchFives.length*50);
+	msg.innerText = ("Score: "+score);
+}//end of function checkBoard
+
+/*
+is called after checkBoard in newPositions. It must be called after checkBoard to work properly as deleteAllMatches uses an array created in checkBoard. The end of the function checks if the game is over.
+*/
+function piecesReact() {
+	piecesMoved = 0;
+	deleteAllMatches();
+	movePiecesDown();
+	if (piecesMoved !== 0) {
+		movePiecesDown();
+	}
+	if (piecesMoved !== 0) {
+		movePiecesDown();
+	}
+	if (piecesMoved !== 0) {
+		movePiecesDown();
+	}
+	readAllAvailIds();
+	readAndReplaceEmptySpaces();
+	if (piecesConstructed !== 0 && gameOver == false) {
+		newPositions();
+	}
+	if (move >= 20) {
+		gameOver = true;
+		msg.innerText = "Game over! Your final score is: "+score;
+		clearBoard();
+		start.disabled = false;
+	}//end of if statement
+}//end of function piecesReact
+
+/*
+called for each match three in checkBoard after the possible matches have been gathered. Checks to see if the first piece in the match three is in any of the match fours.
+*/
+function checkMatchThrees(item, index) {
+	console.log("checking match three: "+item);
+	switch (matchFours.length) {
+		case 0:
+			break;
+		case 1: 
+			if (matchFours[0].includes(item[0])) {
+				console.log(item+" is a duplicate match");
+				item.isDuplicate = true;
+}
+			break;
+		case 2:
+			if (matchFours[0].includes(item[0]) || matchFours[1].includes(item[0])) {
+				console.log(item+" is a duplicate match");
+				item.isDuplicate = true;
+}
+			break;
+		case 3:
+			if (matchFours[0].includes(item[0]) || matchFours[1].includes(item[0]) || matchFours[2].includes(item[0])) {
+				console.log(item+" is a duplicate match");
+				item.isDuplicate = true;
+}
+			break;
+		case 4:
+			if (matchFours[0].includes(item[0]) || matchFours[1].includes(item[0]) || matchFours[2].includes(item[0]) || matchFours[3].includes(item[0])) {
+				console.log(item+" is a duplicate match");
+				item.isDuplicate = true;
+}
+			break;
+		case 5:
+			if (matchFours[0].includes(item[0]) || matchFours[1].includes(item[0]) || matchFours[2].includes(item[0]) || matchFours[3].includes(item[0]) || matchFours[4].includes(item[0])) {
+				console.log(item+" is a duplicate match");
+				item.isDuplicate = true;
+}
+			break;
+	} //end of switch statement
+}//end of function checkMatchThrees
+
+function checkMatchFours(item, index) {
+	console.log("checking match four: "+item);
+	switch (matchFives.length) {
+		case 0:
+			break;
+		case 1: 
+			if (matchFives[0].includes(item[0])) {
+				console.log(item+" is a duplicate match");
+				item.isDuplicate = true;
+}
+			break;
+		case 2:
+			if (matchFives[0].includes(item[0]) || matchFives[1].includes(item[0])) {
+				console.log(item+" is a duplicate match");
+				item.isDuplicate = true;
+}
+}//end of switch statement
+}//end of function checkMatchFours
+
+function removeDuplicates(item, index, arr) {
+	console.log("removing duplicate matches from match "+arr[0].length+" list");
+	if (item.isDuplicate == true) {
+		arr.splice(index, 1);
+		console.log("removing "+item+" from "+arr);
+	}
+}
+
+function deleteMatchPieces(item, index, arr){
+	console.log("Deleting match " +item.length+" # "+index+1);
+	for (a=0; a<item.length; a++ ) {
+		
+console.log("Match piece to remove: "+item[a]);
+toRemove = document.getElementById(item[a]);
+if (toRemove !== null) {
+	toRemove.remove();
+}
+	}
+}//end of function deleteMatchPieces
+
+function deleteAllMatches() {
+	console.log("~~~~~~DELETING MATCH PIECES~~~~~~")
+	matchThrees.forEach(deleteMatchPieces);
+	matchFours.forEach(deleteMatchPieces);
+	matchFives.forEach(deleteMatchPieces);
+}
+
+/*
+Checks the entire board for spaces with pieces that should be moved down, and how many they should be moved down by. 
+*/
+function movePiecesDown() {
+	console.log("------MOVING PIECES DOWN-----");
+	piecesMoved = 0;
+	for (z=1; z<=20; z++) {
+		var currentLocID = "s"+z;
+		var currentLoc = document.getElementById(currentLocID);
+		var currentPiece = currentLoc.firstChild;
+		if (currentPiece == null) {
+			continue;
+		}
+		var firstBelowLocID = "s"+(z+5);
+		firstBelowLoc = document.getElementById(firstBelowLocID);
+		firstBelowPiece = firstBelowLoc.firstChild;
+		if (firstBelowPiece == null) {
+			console.log("piece at "+currentLocID+" moving down to "+firstBelowLocID);
+			piecesMoved++;
+			console.log("pieces moved down: "+piecesMoved);
+			currentPiece.location = firstBelowLocID;
+			currentPiece.locID += 5;
+	firstBelowLoc.appendChild(currentPiece);
+		}//end of if statement
+	}//end of for loop
+	console.log("pieces moved down: "+piecesMoved);
+}//end of function movePiecesDown
+
+//gathers IDs of pieces that were matched and deleted
+function readAvailIds(item, index, arr) {
+	console.log("Gathering available IDs");
+	availIds.push(item.flat(0));
+}//end of function readAvailIds
+
+function readAllAvailIds() {
+	matchThrees.forEach(readAvailIds);
+	matchFours.forEach(readAvailIds);
+	matchFives.forEach(readAvailIds);
+	availIds = availIds.flat();
+}
+
+
+function readAndReplaceEmptySpaces() {
+	console.log("*******searching for and replacing empty spaces*******")
+	piecesConstructed = 0;
+	for (let n=1; n<=25; n++) {
+		var currentSpaceID = "s"+n;
+		var currentSpace = document.getElementById(currentSpaceID);
+		if (currentSpace.firstChild == null){
+			constructPiece(n, availIds[0]);
+			piecesConstructed++;
+			availIds.splice(0, 1);
+		} else { //if the space is NOT empty
+			continue;
+		}//end of if/else checking if currentSpace has a piece on it
+	}//end of for loop checking each space
+}//end of function readAndReplaceEmptySpaces
+
+function newPositions() {
+	checkBoard();
+	setTimeout(piecesReact, 200);
+}
+
+function begin() {
+	start.disabled = true;
+	gameOver = false;
+	move = 0;
+	score = 0;
+	numSelected = 0;
+	selected = [];
+	availIds = [];
+	movesMsg.innerText = "Moves remaining: 20";
+	fillBoard();
+	checkBoard();
+	setTimeout(piecesReact, 200);
+}
+        </script>
+	</body>
+</html>	
