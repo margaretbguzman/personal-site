@@ -15,9 +15,39 @@
 #begin {
 	display: block;
 }
+html{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #1e1e1e;
+    color: white;
+}
+div.topnav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px;
+    align-items: center;
+}
+div.topnav a {
+    text-align: center;
+    border: none;
+    font-size: x-large;
+    background-color: #1e1e1e;
+    text-decoration: none;
+}
+div.topnav a:hover {
+    text-align: center;
+    border: none;
+    font-size: x-large;
+    background-color: #343434;
+    text-decoration: none;
+}
         </style>
 	</head>
 	<body>
+        <div class="topnav">
+            <a href="My Work.html">My Work</a>
+            <a id="home" href="Homepage.html">Margaret Guzman</a>
+            <a href="About Me.html">About Me</a>
+        </div>
 		<div id="gameHead">
 			<h1>Match Three</h1>
 			<strong id="instruct">Tap or click on a piece to select it, then tap or click on an adjacent piece to switch them. You have 20 moves to get your score as high as possible. Good luck!</strong>
@@ -52,7 +82,7 @@ function loadBoard() {
 		s.setAttribute("id", "s"+i);
 		boardCont.appendChild(s);
 		s.ID = i;
-		s.style.border = "1px solid black";
+		s.style.border = "1px solid white";
 		s.style.padding = "15px";
 	}
 }
