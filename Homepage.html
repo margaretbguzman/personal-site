@@ -52,12 +52,11 @@
             <a href="https://www.sololearn.com/profile/22998748" target="_blank">SoloLearn</a>
 
         <h2><i>Contact Me!</i></h2>
-            <form>
-                <input placeholder="Name"/><br/>
-                <input placeholder="Email address"/><br/>
-                <textarea placeholder="Message"></textarea>
-                <input type="submit" value="Send"/>
+            <form action="contact-form-handler.php" method="post">
+                <input placeholder="Name" name="name"><br/>
+                <input placeholder="Email address" name="emailAddress"><br/>
+                <textarea placeholder="Message" name="message"></textarea>
+                <input type="submit" value="Send">
             </form>
-
 	</body>
 </html>
