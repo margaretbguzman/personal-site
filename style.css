@@ -31,6 +31,8 @@ body{
     padding: 5px;
     border-radius: 10px;
     width: 45%;
+    background-color: rgba(30,30,30,0.7);
+    box-shadow: 5px 5px 5px black;
 }
 
 h1, h2{
