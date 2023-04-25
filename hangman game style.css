@@ -1,5 +1,5 @@
 html {
-	background-color: #1e1e1e;
+	background-image: url('images/bg-tile.png');
 	color: white;
 }
 button {
@@ -20,7 +20,7 @@ button:disabled {
 }
 div.topnav {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 100px;
     align-items: center;
 }
@@ -28,7 +28,7 @@ div.topnav a {
     text-align: center;
     border: none;
     font-size: x-large;
-    background-color: #1e1e1e;
+    background-color: rgba(30,30,30,0.7);
     text-decoration: none;
 }
 div.topnav a:hover {

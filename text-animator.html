@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Text Animator | Margaret Guzman</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="text-animator.js"></script>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.png"> 
+</head>
+
+<body id="body">
+  <div class="topnav">
+    <a id="home" href="Homepage.html">Margaret Guzman</a>
+    <a href="My Work.html">My Work</a>
+    <a href="About Me.html">About Me</a>
+    <a href="studentportal-home.html">Student Portal</a>
+  </div>
+  <div id="settings-wrapper">
+    <div class="setting" id="setting1">
+      <label for="to-animate">Enter some text to animate:</label>
+      <input type="text" id="to-animate" value="Hello"></input>
+    </div>
+    <div class="setting" id="setting2">
+      <label for="animation-type">Select an animation</label>
+      <select id="animation-type" name="animation-type" required>
+        <option value="spin">Spin</option>
+        <option value="bounce">Bounce</option>
+        <option value="squeeze">Squeeze</option>
+      </select>
+    </div>
+    <div class="setting" id="setting3">
+      <label for="txt-size">Text size:</label>
+      <input type="number" id="txt-size" min="0" value="50"></input>
+    </div>
+    <div class="setting" id="setting4">
+      <label for="txt-color">Text color:</label>
+      <input type="color" id="txt-color"></input>
+    </div>
+    <div class="setting" id="setting5">
+      <label for="bg-color">Background color:</label>
+      <input type="color" id="bg-color" value="#FFFFFF">
+    </div>
+    <div class="setting" id="setting6">
+      <label for="font">Font:</label>
+      <select id="font">
+        <option value="verdana">Verdana</option>
+        <option value="arial">Arial</option>
+        <option value="times new roman">Times New Roman</option>
+        <option value="georgia">Georgia</option>
+        <option value="tahoma">Tahoma</option>
+        <option value="courier new">Courier New</option>
+      </select>
+    </div>
+  </div> <!--end of settings wrapper-->
+  <div id="button-wrapper"><button onclick=animateit()>Animate It</button></div>
+  <div id="wrapflex">
+    <div id="text-wrapper"></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+@keyframes spin {
+    from{rotate: 360deg}
+}
+
+
+
+@keyframes squeeze {
+	0%{transform: scaleX(1) scaleY(1)}
+    25%{transform: scaleX(0.5) scaleY(1.5)}
+	50%{transform: scaleX(1.5) scaleY(0.5)}
+	100%{transform: scaleX(1) scaleY(1)}
+}
+
+#text-wrapper{
+    margin: 20px;
+}
+
+label {
+	background-color: white;
+	border-radius: 5px;
+	font-family: Tahoma, sans-serif;
+}
