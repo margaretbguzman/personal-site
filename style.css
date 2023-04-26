@@ -12,7 +12,8 @@ body{
 
 #homepage-content{
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 #summary{
@@ -53,9 +54,13 @@ div.topnav {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 100px;
+    grid-template-areas: "one two three four";
     align-items: center;
+    width: 100%;
 }
 div.topnav a {
+    border-radius: 0px;
+    margin: 0px;
     text-align: center;
     border: none;
     font-size: x-large;
@@ -63,7 +68,7 @@ div.topnav a {
     text-decoration: none;
     border-top: 5px solid #975eb8;
     border-bottom: 5px solid #975eb8;
-    color: #eed2ff
+    color: #eed2ff;
 }
 div.topnav a:hover {
     text-align: center;
@@ -73,7 +78,7 @@ div.topnav a:hover {
     text-decoration: none;
     border-top: 5px solid #975eb8;
     border-bottom: 5px solid #975eb8;
-    color: #eed2ff
+    color: #eed2ff;
 }
 #home {
      font-size: xx-large;
@@ -81,14 +86,19 @@ div.topnav a:hover {
      text-decoration: none;
      border: 5px solid #eed2ff;
  }
+#hamburger{
+    display: none;
+}
 a {
     display: inline-block;
     color: white;
     background-color: #343434;
     padding: 15px;
+    margin: 5px;
     border: 2px solid #707070;
     text-decoration: none;
     white-space: nowrap;
+    border-radius: 5px;
 }
 a:hover {
     background-color: #474747;
@@ -104,6 +114,7 @@ button {
     background-color: #343434;
     padding: 15px;
     border: 2px solid #707070;
+    border-radius: 5px;
 }
 button:hover {
     color: white;
@@ -114,54 +125,6 @@ button:hover {
 button:disabled {
     background-color: darkGray;
 	color: gray;
-}
-@media only screen and (max-width: 600px){
-	#home {
-        font-size: large;
-        color: #dc9fff;
-        text-decoration: none;
- 	}
-	div.topnav a {
-        text-align: center;
-        border: none;
-        font-size: large;
-        background-color: rgba(30,30,30,0.7);
-        text-decoration: none;
-        color: white;
-	}
-    div.topnav a:hover {
-        font-size: large;
-    }
-    button {
-        color: white;
-        background-color: #343434;
-        padding: 10px;
-        border: 2px solid #707070;
-    }
-    button:hover {
-        color: white;
-        padding: 10px;
-        border: 2px solid #707070;
-        filter: brightness(150%);
-    }
-}
-
-@media only screen and (max-width: 450px){
-    #summary img{
-        height: 150px;
-    }
-    .homepage-section{
-        width: 100%;
-    }
-}
-
-@media only screen and (min-width: 451px) and (max-width: 800px){
-    #summary img{
-        height: 200px;
-    }
-    .homepage-section{
-        width: 90%;
-    }
 }
 
 #text-wrapper{
@@ -192,6 +155,66 @@ button:disabled {
     justify-content: center;
     width: 100%;
 	height: 100%;
+}
+
+@media only screen and (max-width: 450px){
+    div.topnav{
+        grid-template-columns: auto 50px;
+        grid-template-areas: "one two";
+        width: 90%;
+    }
+    div.topnav a{
+        display: none;
+    }
+    #home{
+        display: block;
+        grid-area: one;
+        justify-self: center;
+    }
+    #summary img{
+        height: 150px;
+    }
+    #homepage-content{
+        justify-content: center;
+    }
+    .card{
+        width: 90%;
+    }
+    #hamburger{
+        display: inline;
+        grid-area: two;
+        justify-self: center;
+    }
+}
+
+@media only screen and (min-width: 451px) and (max-width: 800px){
+    div.topnav{
+        grid-template-columns: auto 50px;
+        grid-template-areas: "one two";
+        width: 90%;
+    }
+    div.topnav a{
+        display: none;
+    }
+    #home{
+        display: block;
+        grid-area: one;
+        justify-self: center;
+    }
+    #summary img{
+        height: 200px;
+    }
+    #homepage-content{
+        justify-content: center;
+    }
+    .card{
+        width: 90%;
+    }
+    #hamburger{
+        display: inline;
+        grid-area: two;
+        justify-self: center;
+    }
 }
 
 @keyframes pulse {
