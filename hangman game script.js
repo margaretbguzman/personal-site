@@ -40,6 +40,7 @@ function start() {
 		letterBox.innerText = chars[t];
 		letterBox.setAttribute("id", "letterBox" + t);
 		letterBox.style.backgroundColor = "white";
+		letterBox.style.userSelect = "none";
 	}
 }
 

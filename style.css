@@ -71,6 +71,9 @@ div.topnav a:hover {
     font-size: x-large;
     background-color: #343434;
     text-decoration: none;
+    border-top: 5px solid #975eb8;
+    border-bottom: 5px solid #975eb8;
+    color: #eed2ff
 }
 #home {
      font-size: xx-large;
