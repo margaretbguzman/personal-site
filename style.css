@@ -89,6 +89,9 @@ div.topnav a:hover {
 #hamburger{
     display: none;
 }
+#ham-menu{
+    display: none;
+}
 a {
     display: inline-block;
     color: white;
@@ -185,6 +188,11 @@ button:disabled {
         grid-area: two;
         justify-self: center;
     }
+    #ham-menu{
+        display: none;
+        position:absolute;
+        z-index: 9;
+    }
 }
 
 @media only screen and (min-width: 451px) and (max-width: 800px){
@@ -214,6 +222,11 @@ button:disabled {
         display: inline;
         grid-area: two;
         justify-self: center;
+    }
+    #ham-menu{
+        display: none;
+        position:absolute;
+        z-index: 9;
     }
 }
 
