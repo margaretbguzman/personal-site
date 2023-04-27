@@ -2,16 +2,27 @@
 <html>
 	<head>
 		<title>Simon | Margaret Guzman</title>
-        <link rel="stylesheet" href="simon game style.css"/>
+        <link rel="stylesheet" href="style.css"/>
 		<meta name="viewport" content="width=device-width">
 		<link rel="icon" type="image/x-icon" href="/images/favicon.png">
+		<script src="ham-menu.js"></script>
 	</head>
 	<body>
         <script src="simon game script.js" async="true"></script>
 		<div class="topnav">
             <a id="home" href="Homepage.html">Margaret Guzman</a>
+			<svg id="hamburger" height="30px" width="30px" onclick=toggleham()>
+                <line x1="0" y1="5" x2="30" y2="5" style="stroke:#dc9fff;stroke-width:5" />
+                <line x1="0" y1="15" x2="30" y2="15" style="stroke:#dc9fff;stroke-width:5" />
+                <line x1="0" y1="25" x2="30" y2="25" style="stroke:#dc9fff;stroke-width:5" />
+            </svg>
             <a href="My Work.html">My Work</a>
             <a href="About Me.html">About Me</a>
+            <a href="studentportal-home.html">Student Portal</a>
+        </div>
+		<div id="ham-menu">
+            <a href="My Work.html">My Work</a><br>
+            <a href="About Me.html">About Me</a><br>
             <a href="studentportal-home.html">Student Portal</a>
         </div>
 		<center>

@@ -27,12 +27,12 @@ body{
 
 .card{
     display: inline-block;
-    border: 5px solid #975eb8;
+    border: 5px solid #583f66;
     margin: 10px;
     padding: 5px;
     border-radius: 10px;
     width: 45%;
-    background-color: rgba(30,30,30,0.7);
+    background-color: rgba(30,30,30,1);
     box-shadow: 5px 5px 5px black;
 }
 
@@ -64,7 +64,7 @@ div.topnav a {
     text-align: center;
     border: none;
     font-size: x-large;
-    background-color: rgba(30,30,30,0.7);
+    background-color: rgba(30,30,30,1);
     text-decoration: none;
     border-top: 5px solid #975eb8;
     border-bottom: 5px solid #975eb8;
@@ -192,6 +192,29 @@ button:disabled {
         display: none;
         position:absolute;
         z-index: 9;
+        background-color: rgba(30,30,30,1);
+        width: 100%;
+        top: 100px;
+        box-shadow: 5px 5px 5px black;
+        border-radius: 10px;
+    }
+    #ham-menu a{
+        border-radius: 0px;
+        margin: 0px;
+        text-align: center;
+        border: none;
+        font-size: x-large;
+        background-color: rgba(30,30,30,1);
+        text-decoration: none;
+        color: #eed2ff;
+    }
+    #ham-menu a:hover{
+        text-align: center;
+        border: none;
+        font-size: x-large;
+        background-color: #343434;
+        text-decoration: none;
+        color: #eed2ff;
     }
 }
 
@@ -224,9 +247,33 @@ button:disabled {
         justify-self: center;
     }
     #ham-menu{
-        display: none;
+        display: block;
         position:absolute;
         z-index: 9;
+        top: 100px;
+        right: 10px;
+        background-color:  rgba(30,30,30,1);
+        width: 50%;
+        box-shadow: 5px 5px 5px black;
+        border-radius: 10px;
+    }
+    #ham-menu a{
+        border-radius: 0px;
+        margin: 0px;
+        text-align: center;
+        border: none;
+        font-size: x-large;
+        background-color: rgba(30,30,30,1);
+        text-decoration: none;
+        color: #eed2ff;
+    }
+    #ham-menu a:hover{
+        text-align: center;
+        border: none;
+        font-size: x-large;
+        background-color: #343434;
+        text-decoration: none;
+        color: #eed2ff;
     }
 }
 
@@ -291,4 +338,113 @@ button:disabled {
     25%{transform: scaleX(0.5) scaleY(1.5)}
 	50%{transform: scaleX(1.5) scaleY(0.5)}
 	100%{transform: scaleX(1) scaleY(1)}
+}
+
+/* for simon game */
+
+#topbar {
+	color: white;
+	height: 100px;
+	width: 800px;
+	display: grid;
+	grid-template-columns: 100px 1fr 1fr 100px;
+	grid-template-rows: 1fr 1fr;
+	align-items: center;
+	grid-template-areas: 
+		". s msg ."
+		". score msg .";
+}
+#begin {
+    font-size: x-large;
+	color: white;
+    background-color: #343434;
+    padding: 15px;
+    border: 2px solid #707070;
+    text-decoration: none;
+}
+#begin:hover {
+    font-size: x-large;
+	color: white;
+    padding: 15px;
+    border: 2px solid #707070;
+    text-decoration: none;
+	filter: brightness(150%);
+}
+#s {
+	font-size: x-large;
+	grid-area: s;
+	color: white;
+}
+#score {
+	grid-area: score;
+	color: white;
+}
+#msg {
+	font-size: x-large;
+	grid-area: msg;
+	color: white;
+}
+#board {
+	height: 600px;
+	width: 800px;
+	display: grid;
+	grid-template-columns: 100px 1fr 1fr 100px;
+	grid-template-rows: 50px 1fr 1fr 100px;
+	grid-template-areas: 
+		". . . ."
+		". one two ."
+		". three four ."
+		". . . .";
+}
+#one {
+	grid-area: one;
+	background-color: red;
+	border-top: 10px solid gray;
+	border-left: 10px solid gray;
+	border-bottom: 5px solid gray;
+	border-right: 5px solid gray;
+}
+#two {
+	grid-area: two;
+	background-color: blue;
+	border-top: 10px solid gray;
+	border-right: 10px solid gray;
+	border-bottom: 5px solid gray;
+	border-left: 5px solid gray;
+}
+#three {
+	grid-area: three;
+	background-color: green;
+	border-bottom: 10px solid gray;
+	border-left: 10px solid gray;
+	border-right: 5px solid gray;
+	border-top: 5px solid gray;
+}
+#four {
+	grid-area: four;
+	background-color: yellow;
+	border-bottom: 10px solid gray;
+	border-right: 10px solid gray;
+	border-left: 5px solid gray;
+	border-top: 5px solid gray;
+	
+}
+
+/* for hangman game */
+
+#wordContainer {
+	display: inline;
+}
+#wordContainer p {
+	display: inline-block;
+	padding: 10px;
+	border: 2px solid black;
+	margin: 5px;
+	width: 15px;
+    font-weight: bolder;
+    color: white;
+}
+#man {
+	padding: 50px;
+	text-align: center;
 }
