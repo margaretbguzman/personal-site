@@ -6,6 +6,7 @@ html{
     width: 100%;
 }
 body{
+    margin: 0px;
     height: 60%;
     width: 100%;
 }
@@ -50,6 +51,10 @@ form {
 }
 
 ul{list-style-image: url('images/bulletpoint.png');}
+#topnav-floater{
+    display: flex;
+    justify-content: center;
+}
 div.topnav {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -158,123 +163,6 @@ button:disabled {
     justify-content: center;
     width: 100%;
 	height: 100%;
-}
-
-@media only screen and (max-width: 450px){
-    div.topnav{
-        grid-template-columns: auto 50px;
-        grid-template-areas: "one two";
-        width: 90%;
-    }
-    div.topnav a{
-        display: none;
-    }
-    #home{
-        display: block;
-        grid-area: one;
-        justify-self: center;
-    }
-    #summary img{
-        height: 150px;
-    }
-    #homepage-content{
-        justify-content: center;
-    }
-    .card{
-        width: 90%;
-    }
-    #hamburger{
-        display: inline;
-        grid-area: two;
-        justify-self: center;
-    }
-    #ham-menu{
-        display: none;
-        position:absolute;
-        z-index: 9;
-        background-color: rgba(30,30,30,1);
-        width: 100%;
-        top: 100px;
-        box-shadow: 5px 5px 5px black;
-        border-radius: 10px;
-    }
-    #ham-menu a{
-        border-radius: 0px;
-        margin: 0px;
-        text-align: center;
-        border: none;
-        font-size: x-large;
-        background-color: rgba(30,30,30,1);
-        text-decoration: none;
-        color: #eed2ff;
-    }
-    #ham-menu a:hover{
-        text-align: center;
-        border: none;
-        font-size: x-large;
-        background-color: #343434;
-        text-decoration: none;
-        color: #eed2ff;
-    }
-}
-
-@media only screen and (min-width: 451px) and (max-width: 800px){
-    div.topnav{
-        grid-template-columns: auto 50px;
-        grid-template-areas: "one two";
-        width: 90%;
-    }
-    div.topnav a{
-        display: none;
-    }
-    #home{
-        display: block;
-        grid-area: one;
-        justify-self: center;
-    }
-    #summary img{
-        height: 200px;
-    }
-    #homepage-content{
-        justify-content: center;
-    }
-    .card{
-        width: 90%;
-    }
-    #hamburger{
-        display: inline;
-        grid-area: two;
-        justify-self: center;
-    }
-    #ham-menu{
-        display: block;
-        position:absolute;
-        z-index: 9;
-        top: 100px;
-        right: 10px;
-        background-color:  rgba(30,30,30,1);
-        width: 50%;
-        box-shadow: 5px 5px 5px black;
-        border-radius: 10px;
-    }
-    #ham-menu a{
-        border-radius: 0px;
-        margin: 0px;
-        text-align: center;
-        border: none;
-        font-size: x-large;
-        background-color: rgba(30,30,30,1);
-        text-decoration: none;
-        color: #eed2ff;
-    }
-    #ham-menu a:hover{
-        text-align: center;
-        border: none;
-        font-size: x-large;
-        background-color: #343434;
-        text-decoration: none;
-        color: #eed2ff;
-    }
 }
 
 @keyframes pulse {
@@ -447,4 +335,189 @@ button:disabled {
 #man {
 	padding: 50px;
 	text-align: center;
+}
+
+/* for match three game */
+
+h1, #msg-moves, #instruct{
+	text-align: center;
+}
+
+#msg-moves{
+	width: 400px;
+	margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+#msg{
+	margin: 2px;
+}
+#moves{
+    margin: 2px;
+	font-size: 20px;
+}
+
+button {
+    color: white;
+    background-color: #343434;
+    padding: 15px;
+    border: 2px solid #707070;
+	margin-bottom: 20px;
+}
+
+#boardCont{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	margin-bottom: 10px;
+}
+#board {
+	z-index: 0;
+	height: 400px;
+	width: 400px;
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	margin: auto;
+}
+
+#begin {
+	display: block;
+}
+
+@media only screen and (max-width: 450px){
+    div.topnav{
+        grid-template-columns: auto 50px;
+        grid-template-areas: "one two";
+        width: 90%;
+    }
+    div.topnav a{
+        display: none;
+    }
+    #home{
+        display: block;
+        grid-area: one;
+        justify-self: center;
+    }
+    #summary img{
+        height: 150px;
+    }
+    #homepage-content{
+        justify-content: center;
+    }
+    .card{
+        width: 90%;
+    }
+    #hamburger{
+        display: inline;
+        grid-area: two;
+        justify-self: center;
+    }
+    #ham-menu{
+        display: none;
+        position:absolute;
+        z-index: 9;
+        background-color: rgba(30,30,30,1);
+        width: 100%;
+        top: 100px;
+        box-shadow: 5px 5px 5px black;
+        border-radius: 10px;
+    }
+    #ham-menu a{
+        border-radius: 0px;
+        margin: 0px;
+        text-align: center;
+        border: none;
+        font-size: x-large;
+        background-color: rgba(30,30,30,1);
+        text-decoration: none;
+        color: #eed2ff;
+    }
+    #ham-menu a:hover{
+        text-align: center;
+        border: none;
+        font-size: x-large;
+        background-color: #343434;
+        text-decoration: none;
+        color: #eed2ff;
+    }
+    #msg-moves{
+        width: 100%;
+    }
+    #board{
+        width: 100%;
+        margin-bottom: 5px;
+    }
+        h1{
+        margin: 10px;
+    }
+    p{
+        margin: 10px;
+    }
+}
+
+@media only screen and (min-width: 451px) and (max-width: 800px){
+    div.topnav{
+        grid-template-columns: auto 50px;
+        grid-template-areas: "one two";
+        width: 90%;
+    }
+    div.topnav a{
+        display: none;
+    }
+    #home{
+        display: block;
+        grid-area: one;
+        justify-self: center;
+    }
+    #summary img{
+        height: 200px;
+    }
+    #homepage-content{
+        justify-content: center;
+    }
+    .card{
+        width: 90%;
+    }
+    #hamburger{
+        display: inline;
+        grid-area: two;
+        justify-self: center;
+    }
+    #ham-menu{
+        display: block;
+        position:absolute;
+        z-index: 9;
+        top: 100px;
+        right: 10px;
+        background-color:  rgba(30,30,30,1);
+        width: 50%;
+        box-shadow: 5px 5px 5px black;
+        border-radius: 10px;
+    }
+    #ham-menu a{
+        border-radius: 0px;
+        margin: 0px;
+        text-align: center;
+        border: none;
+        font-size: x-large;
+        background-color: rgba(30,30,30,1);
+        text-decoration: none;
+        color: #eed2ff;
+    }
+    #ham-menu a:hover{
+        text-align: center;
+        border: none;
+        font-size: x-large;
+        background-color: #343434;
+        text-decoration: none;
+        color: #eed2ff;
+    }
+    #msg-moves{
+        width: 400px;
+    }
+    #board{
+        width: 400px;
+    }
 }

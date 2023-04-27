@@ -1,84 +1,44 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Match Three - Margaret Guzman</title>
-        <style>
-#boardCont {
-	z-index: 0;
-	height: 400px;
-	width: 400px;
-	display: grid;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-}
-
-#begin {
-	display: block;
-}
-html{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background-image: url('images/bg-tile.png');
-    color: white;
-}
-div.topnav {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 100px;
-    align-items: center;
-}
-div.topnav a {
-    text-align: center;
-    border: none;
-    font-size: x-large;
-    background-color: rgba(30,30,30,0.7);
-    text-decoration: none;
-    color: white;
-}
-div.topnav a:hover {
-    text-align: center;
-    border: none;
-    font-size: x-large;
-    background-color: #343434;
-    text-decoration: none;
-    color: white;
-}
-#home {
-     font-size: xx-large;
-     color: #dc9fff;
-     text-decoration: none;
- }
-a {
-    color: white;
-    background-color: #343434;
-    padding: 15px;
-    border: 2px solid #707070;
-    text-decoration: none;
-}
-a:hover {
-    color: white;
-    padding: 15px;
-    border: 2px solid #707070;
-    text-decoration: none;
-}
-        </style>
+		<title>Match Three | Margaret Guzman</title>
+		<meta name="viewport" content="width=device-width">
+		<link rel="icon" type="image/x-icon" href="/images/favicon.png">
+		<script src="ham-menu.js"></script>
+        <link rel="stylesheet" href="style.css"/>
 	</head>
 	<body>
-		<div class="topnav">
-            <a id="home" href="Homepage.html">Margaret Guzman</a>
-            <a href="My Work.html">My Work</a>
-            <a href="About Me.html">About Me</a>
+		<div id="topnav-floater">
+			<div class="topnav">
+				<a id="home" href="Homepage.html">Margaret Guzman</a>
+				<svg id="hamburger" height="30px" width="30px" onclick=toggleham()>
+					<line x1="0" y1="5" x2="30" y2="5" style="stroke:#dc9fff;stroke-width:5" />
+					<line x1="0" y1="15" x2="30" y2="15" style="stroke:#dc9fff;stroke-width:5" />
+					<line x1="0" y1="25" x2="30" y2="25" style="stroke:#dc9fff;stroke-width:5" />
+				</svg>
+				<a href="My Work.html">My Work</a>
+				<a href="About Me.html">About Me</a>
+				<a href="studentportal-home.html">Student Portal</a>
+			</div>
+		</div>
+		<div id="ham-menu">
+            <a href="My Work.html">My Work</a><br>
+            <a href="About Me.html">About Me</a><br>
             <a href="studentportal-home.html">Student Portal</a>
         </div>
 		<div id="gameHead">
 			<h1>Match Three</h1>
-			<strong id="instruct">Tap or click on a piece to select it, then tap or click on an adjacent piece to switch them. You have 20 moves to get your score as high as possible. Good luck!</strong>
+			<p id="instruct">Tap or click on a piece to select it, then tap or click on an adjacent piece to switch them. You have 20 moves to get your score as high as possible. Good luck!</strong>
+			<center><button id="begin" onclick="begin()">Begin</button></center>
 			<div id="msg-moves">
 				<p id="msg"></p>
 				<p id="moves"></p>
 			</div>
-			<center><button id="begin" onclick="begin()">Begin</button></center>
+			
 		</div>
-		<div id="boardCont"></div>
+		<div id="boardCont">
+			<div id="board"></div>
+		</div>
         <script>
             /*
 By Margaret Guzman. Comment if you enjoy! My other completed projects are available on my website at https://margaretbguzman.com/
@@ -87,7 +47,7 @@ By Margaret Guzman. Comment if you enjoy! My other completed projects are availa
 window.onload = init;
 
 function init() {
-	boardCont = document.getElementById("boardCont");
+	board = document.getElementById("board");
 	gameHead = document.getElementById("gameHead");
 	loadBoard();
 	console.log("initialized");
@@ -101,10 +61,11 @@ function loadBoard() {
 	for (let i=1; i<=25; i++) {
 		s = document.createElement("div");
 		s.setAttribute("id", "s"+i);
-		boardCont.appendChild(s);
+		board.appendChild(s);
 		s.ID = i;
 		s.style.border = "1px solid white";
 		s.style.padding = "15px";
+		board.style.paddingBottom = "10px";
 	}
 }
 
@@ -128,7 +89,7 @@ function constructPiece(locID, pieceID) {
 	var colorID = Math.floor(Math.random() * 5);
 	switch (colorID) {
 			case 0:
-				p.style.backgroundColor = "red";
+				p.style.backgroundColor = "#8a2427";
 				break;
 			case 1: 
 				p.style.backgroundColor = "orange";
@@ -140,7 +101,7 @@ function constructPiece(locID, pieceID) {
 				p.style.backgroundColor = "green";
 				break;
 			case 4:
-				p.style.backgroundColor = "blue";
+				p.style.backgroundColor = "royalblue";
 				break;
 		}//end of colorID switch statement
 	p.colorID = colorID;
@@ -154,19 +115,19 @@ function constructPiece(locID, pieceID) {
 	var parent = document.getElementById(parentID);
 	parent.appendChild(p);
 	p.isSelected = 0;
-	p.select = function() {
-			if (this.isSelected == 0) {
-				switch (numSelected) {
-			   		case 0:
+	p.select = function() { //called when a piece is selected
+			if (this.isSelected == 0) {//if the piece is not currently selected
+				switch (numSelected) {//How many pieces are selected
+			   		case 0://selected first piece
 			   			this.isSelected = 1;
-			   			this.style.border = "5px solid white";
+			   			this.style.filter = "brightness(200%)"; //apply select animation
 						numSelected++;
 						selected.push(this.getAttribute("id"));
 this.isSelected = 0;
 						break;
-					case 1:
+					case 1://selected second piece
 						this.isSelected = 2;
-						this.style.border = "5px solid darkGray";
+						//apply select #2 animation
 						numSelected++;
 						selected.push(this.getAttribute("id"));
 console.log("selected: " + selected.join(" "));
@@ -176,9 +137,9 @@ console.log("selected: " + selected.join(" "));
 						this.isSelected = 0;
 						break;
 		   		}//end of isSelected switch statement
-			} else {
+			} else {//if the piece is currently selected (deselect it)
 				this.isSelected = 0;
-				this.style.border = "none";
+				this.style.filter = "brightness(100%)";//revert piece appearance
 				numSelected--;
 				selected.pop(this.getAttribute("id"));
 			}//end of if/else statement
@@ -221,14 +182,14 @@ document.getElementById(secondLoc).appendChild(firstPiece);
 document.getElementById(firstLoc).appendChild(secondPiece);
 			secondPiece.location = firstLoc;
 			secondPiece.locID = firstLocId;
-			firstPiece.style.border = "none";
-			secondPiece.style.border = "none";
+			firstPiece.style.filter = "brightness(100%)";
+			secondPiece.style.filter = "brightness(100%)";
 			newPositions();
 			break;
 		default:
 			console.log("Pieces not adjacent");
-			firstPiece.style.border = "none";
-			secondPiece.style.border = "none";
+			firstPiece.style.filter = "brightness(100%)";
+			secondPiece.style.filter = "brightness(100%)";
 			break;
 	}//end of switch statement
 }//end of function switchPieces
@@ -427,7 +388,7 @@ function piecesReact() {
 		gameOver = true;
 		msg.innerText = "Game over! Your final score is: "+score;
 		clearBoard();
-		start.disabled = false;
+		start.style.display = "block";
 	}//end of if statement
 }//end of function piecesReact
 
@@ -582,7 +543,7 @@ function newPositions() {
 }
 
 function begin() {
-	start.disabled = true;
+	start.style.display = "none";
 	gameOver = false;
 	move = 0;
 	score = 0;
