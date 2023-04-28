@@ -78,6 +78,11 @@ input, select{
     color:#33273a;
 }
 
+input:focus, select:focus{
+    background-color: #eed2ff;
+    color:#33273a;
+}
+
 ul{list-style-image: url('images/bulletpoint.png');}
 #topnav-floater{
     display: flex;
