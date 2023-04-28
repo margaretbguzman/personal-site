@@ -244,10 +244,10 @@ button:disabled {
 
 /* for simon game */
 
-#topbar {
+#simon-topbar {
 	color: white;
 	height: 100px;
-	width: 800px;
+	width: 400px;
 	display: grid;
 	grid-template-columns: 100px 1fr 1fr 100px;
 	grid-template-rows: 1fr 1fr;
@@ -281,22 +281,22 @@ button:disabled {
 	grid-area: score;
 	color: white;
 }
-#msg {
+#simon-msg {
 	font-size: x-large;
 	grid-area: msg;
 	color: white;
 }
-#board {
-	height: 600px;
-	width: 800px;
+#simon-board {
+	height: 400px;
+	width: 400px;
 	display: grid;
-	grid-template-columns: 100px 1fr 1fr 100px;
-	grid-template-rows: 50px 1fr 1fr 100px;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
 	grid-template-areas: 
-		". . . ."
-		". one two ."
-		". three four ."
-		". . . .";
+		"one two"
+        "three four";
+    margin-top: 40px;
+    margin-bottom: 10px;
 }
 #one {
 	grid-area: one;
@@ -397,9 +397,16 @@ button {
 }
 
 #begin {
-	display: block;
+    margin: 5px;
 }
-
+@media only screen and (max-width: 300px){
+    #home{
+        font-size: 22px;
+    }
+    strong{
+        font-size: 24px;
+    }
+}
 @media only screen and (max-width: 450px){
     div.topnav{
         grid-template-columns: auto 50px;
@@ -459,11 +466,18 @@ button {
     #msg-moves{
         width: 100%;
     }
-    #board{
+    #simon-topbar{
+        width: 100%;
+    }
+    #simon-board{
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+    #board, #simon-board{
         width: 100%;
         margin-bottom: 5px;
     }
-        h1{
+    h1{
         margin: 10px;
     }
     p{
@@ -531,7 +545,11 @@ button {
     #msg-moves{
         width: 400px;
     }
-    #board{
+    #simon-board{
+        margin-bottom: 10px;
+        margin-top: 40px;
+    }
+    #simon-topbar{
         width: 400px;
     }
 }

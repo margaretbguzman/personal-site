@@ -10,7 +10,7 @@ function initialize() {
   two = document.getElementById("two");
   three = document.getElementById("three");
   four = document.getElementById("four");
-  msg = document.getElementById("msg");
+  msg = document.getElementById("simon-msg");
   seq = [];
   selection = [];
   i = 0;
