@@ -60,7 +60,22 @@ table {
     color: hsl(259, 100%, 94%)
 }
 form {
-    max-width: 50%;
+    width: 75%;
+    max-width: 500px;
+}
+
+input, label, select{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 5px;
+    padding: 2px;
+    border-radius: 5px;
+    font-size: 16px;
+    color:#eed2ff;
+}
+
+input, select{
+    background-color: #eed2ff;
+    color:#33273a;
 }
 
 ul{list-style-image: url('images/bulletpoint.png');}
@@ -164,6 +179,8 @@ button:disabled {
     background-color: #343434;
     margin: 5px;
     padding: 5px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px black;
 }
 #button-wrapper{
     display: flex;
@@ -406,6 +423,18 @@ button {
     strong{
         font-size: 24px;
     }
+    input, label, select{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin: 5px;
+        padding: 2px;
+        border-radius: 5px;
+        font-size: 12px;
+        max-width: 100%;
+    }
+    form{
+        width: 100%;
+        max-width: 100%;
+    }
 }
 @media only screen and (max-width: 450px){
     div.topnav{
@@ -482,6 +511,18 @@ button {
     }
     p{
         margin: 10px;
+    }
+    input, label, select{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        margin: 5px;
+        padding: 2px;
+        border-radius: 5px;
+        font-size: 12px;
+        max-width: 100%;
+    }
+    form{
+        width: 100%;
+        max-width: 100%;
     }
 }
 

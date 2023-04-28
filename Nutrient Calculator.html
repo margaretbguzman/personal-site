@@ -72,31 +72,53 @@ function calculate(){
 		<a href="About Me.html">About Me</a><br>
 		<a href="studentportal-home.html">Student Portal</a>
 	</div>
-  <form id="nutrCalc" style="padding: 20px;">
-	<label>Select your sex</label>
-	  <select id="sex" name="sex" required>
-		<option value="male">Male</option>
-		<option value="female">Female</option>
-	  </select><br>
-	<label>Select your physical activity level</label>
-	  <select id="activity" name="activity" required>
-		<option value="sedentary">Sedentary</option>
-		<option value="lightlyActive">Lightly Active</option>
-		<option value="moderatelyActive">Moderately Active</option>
-		<option value="veryActive">Very Active</option>
-	  </select><br>
-	<label>Enter your height:</label>
-	<label>Feet</label>
-	  <input id="heightFt" type=text name="HeightFt" required>
-	<label>Inches</label>
-	  <input id="heightIn" type=text name="HeightIn" required><br>
-	<label>Enter your weight in pounds</label>
-	  <input id="weight" type=text name="Weight in lbs" required><br>
-	<label>Enter your age in years</label>
-	  <input id="age" type=text name="Age in years" required><br>
-	<button type="button" form="nutrCalc" onclick="calculate()">Calculate</button>
-  </form>
-  <div id="answer">
-  </div>
+	<div id="homepage-content">
+		<form id="nutrCalc" style="padding: 20px;">
+			<h1>Nutrition Calculator</h1>
+			<div class="setting">
+				<label>Select your sex:</label>
+				<select id="sex" name="sex" required>
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+				</select>
+			</div>
+			<div class="setting">
+				<label>Select your physical activity level:</label>
+				<select id="activity" name="activity" required>
+					<option value="sedentary">Sedentary</option>
+					<option value="lightlyActive">Lightly Active</option>
+					<option value="moderatelyActive">Moderately Active</option>
+					<option value="veryActive">Very Active</option>
+				</select>
+			</div>
+			<div class="setting">
+				<label>Enter your height:</label>
+				<div>
+				<label>Feet:</label>
+				<input id="heightFt" type=text name="HeightFt" required>
+				</div>
+				<div>
+				<label>Inches:</label>
+				<input id="heightIn" type=text name="HeightIn" required>
+				</div>
+			</div>
+			<div class="setting">
+				<label>Enter your weight in pounds:</label>
+				<input id="weight" type=text name="Weight in lbs" required>
+			</div>
+			<div class="setting">
+				<label>Enter your age in years:</label>
+				<input id="age" type=text name="Age in years" required><br>
+			</div>
+			<div id="topnav-floater">
+				<button type="button" form="nutrCalc" onclick="calculate()">Calculate</button>
+			</div>
+			<div id="topnav-floater">
+				<div id="answer"></div>
+			</div>
+			
+		</form>
+		
+	</div>
 </body>
 </html>
