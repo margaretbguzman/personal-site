@@ -37,9 +37,22 @@ body{
     box-shadow: 5px 5px 5px black;
 }
 
-h1, h2{
-    text-align: center;
+.job{
+    border: 2px solid #33273a;
+    border-radius: 10px;
+    margin: 5px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
 
+.job p{
+    text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6{
+    text-align: center;
+    margin: 15px;
 }
 
 table {
@@ -90,6 +103,7 @@ div.topnav a:hover {
      color: #dc9fff;
      text-decoration: none;
      border: 5px solid #eed2ff;
+     border-radius: 10px;
  }
 #hamburger{
     display: none;
