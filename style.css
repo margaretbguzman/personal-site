@@ -139,6 +139,8 @@ div.topnav a:hover {
 }
 #ham-menu{
     display: none;
+    transition: all 0.5s;
+    height: 0px;
 }
 a {
     display: inline-block;
