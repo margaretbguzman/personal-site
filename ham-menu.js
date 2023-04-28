@@ -2,9 +2,11 @@ window.onload = closeham; //load page with menu closed
 
 function closeham(){
     document.getElementById("ham-menu").style.display = "none";
+    document.getElementById("ham-menu").style.height = "0px";
 }
 
 function toggleham(){
+    console.log("--------")
     ham = document.getElementById("ham-menu");
     console.log("beginning height: "+ham.style.height);
     hamLinks = ham.getElementsByTagName("a");
