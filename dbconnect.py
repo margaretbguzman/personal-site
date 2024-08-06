@@ -1,11 +1,11 @@
 import pymysql
 
 print('begin')
-cxn = pymysql.connect(host='localhost',
+cxn = pymysql.connect(host='margaretbguzman.com',
                              user='margaret',
                              password='reg-Users1998',
                              database='registered_users',
-                             charset='utf8mb4',
-                             cursorclass=pymysql.cursors.DictCursor)
+                             port=2222,
+                             charset='utf8mb4')
 
 csr = cxn.cursor()
