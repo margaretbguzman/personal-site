@@ -7,5 +7,3 @@ cxn = pymysql.connect(host='margaretbguzman.com',
                              database='registered_users',
                              port=2222,
                              charset='utf8mb4')
-
-csr = cxn.cursor()
